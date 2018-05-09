@@ -1,6 +1,6 @@
 % Read Data
-Magn = abs(Zgm);
-Phas = angle(Zgm);
+Magn = abs(Zmm);
+Phas = angle(Zmm);
 
 %Plot Data
 f = figure;
