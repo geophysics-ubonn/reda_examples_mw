@@ -1,0 +1,1 @@
+START "TomoGr" /WAIT /REALTIME "C:\Programme\SIP-M-8Ch-Projekt\SIP-M-8Ch.exe" "C:\Monitoring\Data\20180329\20180329_1217_45_UTC+0000_std01_ft6\Data\sip_data" "C:\Monitoring\MFF\t6_Frequency6.mff" "C:\Monitoring\MCF\MCMeas20180213.mcf"

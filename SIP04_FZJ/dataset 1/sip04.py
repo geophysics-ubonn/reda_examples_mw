@@ -27,13 +27,14 @@ def import_sip04_data(data_filename):
     filename, format = os.path.splitext(data_filename)
 
     if format == '.csv':
-        print('its a .csv')
-        df_final = _import_mat_file(data_filename)
-    elif format == '.mat':
-        print('its a .mat')
+        print('Import SIP04 data from .csv file')
         df_final = _import_csv_file(data_filename)
+    elif format == '.mat':
+        print('Import SIP04 data from .mat file')
+        df_final = _import_mat_file(data_filename)
     else:
         print('Please use .csv or .mat format.')
+        df_final = np.NaN
 
     return df_final
 
@@ -247,22 +248,20 @@ def _import_csv_file(csv_filename):
     df_merged['Us4_1'] = np.nan
     df_merged['Us4_2'] = np.nan
     df_merged['Us4_3'] = np.nan
+    df_merged['Zg_m'] = np.nan
 
     # calculating other values, e.g. used in the .mat-file
-    df_merged['Z12_m'] = pd.Series(df_merged['Z12_mRe'] +
-                                   (1j * df_merged['Z12_mIm']),
+    df_merged['Z12_m'] = pd.Series(df_merged['Z12_mAbs'] *
+                                   np.exp(1j * df_merged['Z12_mPhi']),
                                    index=df_merged.index)
-    df_merged['Z14_m'] = pd.Series(df_merged['Z14_mRe'] +
-                                   (1j * df_merged['Z14_mIm']),
+    df_merged['Z14_m'] = pd.Series(df_merged['Z14_mAbs'] *
+                                   np.exp(1j * df_merged['Z14_mPhi']),
                                    index=df_merged.index)
-    df_merged['Z34_m'] = pd.Series(df_merged['Z34_mRe'] +
-                                   (1j * df_merged['Z34_mIm']),
+    df_merged['Z34_m'] = pd.Series(df_merged['Z34_mAbs'] *
+                                   np.exp(1j * df_merged['Z34_mPhi']),
                                    index=df_merged.index)
-    df_merged['Zg_m'] = pd.Series(df_merged['Zg_mRe'] +
-                                  (1j * df_merged['Zg_mIm']),
-                                  index=df_merged.index)
-    df_merged['Zm_m'] = pd.Series(df_merged['Zm_mRe'] +
-                                  (1j * df_merged['Zm_mIm']),
+    df_merged['Zm_m'] = pd.Series(df_merged['Zm_mAbs'] *
+                                  np.exp(1j * df_merged['Zm_mPhi']),
                                   index=df_merged.index)
 
     return df_merged
