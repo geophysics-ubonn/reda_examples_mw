@@ -1,3 +1,8 @@
 # This is the inventory file which assigns identifiers to specific data sets
 #identifier	path-to-data-zip
 sip04_fs_01		SIP04_FZJ/frequency_schemes/Test01/Data/data.zip
+sip04_fs_02		SIP04_FZJ/frequency_schemes/Test02/Data/data.zip
+sip04_fs_03		SIP04_FZJ/frequency_schemes/Test03/Data/data.zip
+sip04_fs_04		SIP04_FZJ/frequency_schemes/Test04/Data/data.zip
+sip04_fs_05		SIP04_FZJ/frequency_schemes/Test05/Data/data.zip
+sip04_fs_06		SIP04_FZJ/frequency_schemes/Test06/Data/data.zip
